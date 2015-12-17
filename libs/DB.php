@@ -3,22 +3,39 @@
 class DB
 {
     private var $servername = "localhost";
-    private var $username = "forge";
-    private var $password = "secret";
-    private var $db = "attendance";
+    private var $username   = "prs";
+    private var $password   = "secret";
+    private var $dbname     = "prs";
+
+    /*
+    *   Holds Database Connection Object
+    */
+    private var $conn = null;
 
     /**
-    *   Connects to database & returns Connection Object
+    *   Connects to database & sets Connection Object
     */
-    public function getConnection ()
+    public function connect ()
     {
     	// Create connection
-    	$conn = new mysqli($this->servername, $this->username, $this->password, $this->db);
+    	$conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
     	// Check connection
     	if ($conn->connect_error) {
     	    die("Connection failed: " . $conn->connect_error);
     	}
-    	return $conn;
+    	$this->conn = $conn;
     }
+
+    /**
+    *   Sets connection Object $conn if not already set
+    *   @return connection object
+    */
+    public function getConnection()
+    {
+        if ( $this->conn == null )
+            connect();
+        return $this->conn;
+    }
+
 
 }
