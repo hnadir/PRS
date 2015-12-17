@@ -8,7 +8,7 @@ class DB
     private var $db = "attendance";
 
     /**
-    |   Connects to database & returns Connection Object
+    *   Connects to database & returns Connection Object
     */
     public function getConnection ()
     {
