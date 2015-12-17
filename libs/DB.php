@@ -1,5 +1,11 @@
 <?php
 
+/**
+*   @author Emad Ehsan
+*   @license GNU Public License
+*
+*   DB class holds generic methods for DB communication
+*/
 class DB
 {
     private var $servername = "localhost";
