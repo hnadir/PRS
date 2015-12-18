@@ -13,7 +13,7 @@ class DB
     private var $password   = "secret";
     private var $dbname     = "prs";
 
-    /*
+    /**
     *   Holds Database Connection Object
     */
     private var $conn = null;
@@ -21,7 +21,7 @@ class DB
     /**
     *   Connects to database & sets Connection Object
     */
-    public function connect ()
+    private function connect ()
     {
     	// Create connection
     	$conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
@@ -39,7 +39,7 @@ class DB
     public function getConnection()
     {
         if ( $this->conn == null )
-            connect();
+	    $this->connect();
         return $this->conn;
     }
 
